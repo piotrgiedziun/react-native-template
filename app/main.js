@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
 import { AsyncStorage, Text, View, Button, Platform } from 'react-native';
 import { create } from 'mobx-persist'
-import { StackNavigator } from 'react-navigation';
 import { testStore } from './stores'
-import { HomeScreen, AboutScreen } from './containers'
+import Router from './router'
 
 const hydrate = create({
     storage: AsyncStorage,
     jsonify: true
-})
-
-const AppNavigator = StackNavigator({
-    Home: { screen: HomeScreen },
-    About: { screen: AboutScreen },
 })
 
 export default class App extends Component {
@@ -27,6 +21,6 @@ export default class App extends Component {
         if (!this.state.rehydrated) {
             return <Text>Loading...</Text>
         }
-        return <AppNavigator />
+        return <Router />
     }
 }
