@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Text, ScrollView, View, Button, StyleSheet } from 'react-native'
+import { Text, TextInput, ScrollView, View, Button, StyleSheet } from 'react-native'
 import { observer } from 'mobx-react/native'
 import { Actions } from 'react-native-router-flux'
-import { testStore } from '../stores'
+import { testStore, pushStore } from '../stores'
 import colors from '../constants/colors'
 
 @observer
@@ -13,6 +13,10 @@ export default class HomeScreen extends Component {
                 <Text style={styles.text}>
                     {testStore.customLogic}
                 </Text>
+                <TextInput
+                    style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                    value={pushStore.token}
+                />
                 <Button onPress={() => testStore.inc()} title="+1" />
                 <Button onPress={() => testStore.dec()} title="-1" />
                 <Button onPress={() => Actions.about()} title="About" />

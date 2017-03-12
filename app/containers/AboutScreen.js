@@ -7,7 +7,7 @@ export default class AboutScreen extends Component {
         return (
             <ScrollView style={styles.viewContainer}>
                 <Text style={styles.text}>
-                    About page
+                    About page (v6)
                 </Text>
             </ScrollView>
         );
